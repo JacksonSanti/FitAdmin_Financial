@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  financial_grpc:
+    build: .
+    container_name: financial_grpc
+    ports:
+      - "50052:50052"
+    volumes:
+      - .:/financial
+    networks:
+      - fitadmin_network
+    restart: unless-stopped
+
+networks:
+  fitadmin_network:
+    external: true
