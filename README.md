@@ -4,6 +4,7 @@
 
 Este projeto é um MVP (Minimum Viable Product) desenvolvido para a PUC-Rio, com o objetivo de colocar em prática os conhecimentos adquiridos no semestre atual. 
 Ele representa a quarta parte do projeto com arquitura em microserviço, após a instalação da quarta parte clique no link ao lado [FitAdmin](http://127.0.0.1:5000/).
+Para acessar a plataforma só basta colocar admin@fitadmin.com no Email e 12345678 no Password.
 
 ---
 
