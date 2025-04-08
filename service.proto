@@ -4,24 +4,60 @@ syntax = "proto3";
 // GET ALL Payment Service
 // =====================================================================
 
-message PaymentRequest {
-    int32 user_id = 1;
+message PaymentRequest {}
+
+message PaymentRequestById {
+    int32 payment_id = 1;
 }
 
-message Payment {
+message PaymentUpdateRequest {
     int32 id = 1;
     int32 user_id = 2;
     int32 plan_id = 3;
     int32 method_id = 4;
-    float total = 5;
+}
+
+message PaymentUpdateStudentIdRequest {
+    int32 student_id = 1;
+    int32 financial_id = 2;
+}
+
+message PaymentCreateRequest {
+    int32 user_id = 2;
+    int32 plan_id = 3;
+    int32 method_id = 4;
+}
+
+message PaymentDeleteRequest {
+    int32 payment_id = 1;
 }
 
 message PaymentResponse {
-    repeated Payment payment = 1;
+    int32 id = 1;
+    int32 user_id = 2;
+    int32 plan_id = 3;
+    int32 method_id = 4;
+}
+
+message PaymentListResponse {
+    repeated PaymentResponse payment = 1;
+}
+
+message PaymentUpdateResponse {
+    bool success = 1;
+}
+
+message PaymentCreateResponse {
+    int32 id = 1;
 }
 
 service PaymentService {
-    rpc GetPaymentData (PaymentRequest) returns (PaymentResponse);
+    rpc GetPaymentData (PaymentRequest) returns (PaymentListResponse);
+    rpc GetPaymentDataById (PaymentRequestById) returns (PaymentResponse);
+    rpc UpdatePaymentData (PaymentUpdateRequest) returns (PaymentUpdateResponse);
+    rpc CreatePaymentData (PaymentCreateRequest) returns (PaymentCreateResponse);
+    rpc UpdatePaymentStudentId (PaymentUpdateStudentIdRequest) returns (PaymentUpdateResponse);
+    rpc DeletePaymentById (PaymentDeleteRequest) returns (PaymentUpdateResponse);
 }
 
 
@@ -29,34 +65,48 @@ service PaymentService {
 // GET ALL Plan Service
 // =====================================================================
 
-message PlanRequest {
+message PlanRequest {}
+
+message PlanRequestById {
     int32 plan_id = 1;
 }
 
 message PlanResponse {
     int32 id = 1;
     string name = 2;
-    int32 value = 3;
+    double value = 3;
+}
+
+message PlanListResponse {
+    repeated PlanResponse plan = 1;
 }
 
 service PlanService {
-    rpc GetPlanData (PlanRequest) returns (PlanResponse);
+    rpc GetPlanData (PlanRequest) returns (PlanListResponse);
+    rpc GetPlanDataById (PlanRequestById) returns (PlanResponse);
 }
 
 // =====================================================================
 // GET ALL Method Service
 // =====================================================================
 
-message MethodRequest {
+message MethodRequest {}
+
+message MethodRequestById {
     int32 method_id = 1;
 }
 
 message MethodResponse {
     int32 id = 1;
     string name = 2;
-    float discount = 3; 
+    double discount = 3; 
+}
+
+message MethodListResponse {
+    repeated MethodResponse method = 1;
 }
 
 service MethodService { 
-    rpc GetMethodData (MethodRequest) returns (MethodResponse);
+    rpc GetMethodData (MethodRequest) returns (MethodListResponse);
+    rpc GetMethodDataById (MethodRequestById) returns (MethodResponse);
 }

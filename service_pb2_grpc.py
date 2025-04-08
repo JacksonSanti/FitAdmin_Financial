@@ -37,7 +37,32 @@ class PaymentServiceStub(object):
         self.GetPaymentData = channel.unary_unary(
                 '/PaymentService/GetPaymentData',
                 request_serializer=service__pb2.PaymentRequest.SerializeToString,
+                response_deserializer=service__pb2.PaymentListResponse.FromString,
+                _registered_method=True)
+        self.GetPaymentDataById = channel.unary_unary(
+                '/PaymentService/GetPaymentDataById',
+                request_serializer=service__pb2.PaymentRequestById.SerializeToString,
                 response_deserializer=service__pb2.PaymentResponse.FromString,
+                _registered_method=True)
+        self.UpdatePaymentData = channel.unary_unary(
+                '/PaymentService/UpdatePaymentData',
+                request_serializer=service__pb2.PaymentUpdateRequest.SerializeToString,
+                response_deserializer=service__pb2.PaymentUpdateResponse.FromString,
+                _registered_method=True)
+        self.CreatePaymentData = channel.unary_unary(
+                '/PaymentService/CreatePaymentData',
+                request_serializer=service__pb2.PaymentCreateRequest.SerializeToString,
+                response_deserializer=service__pb2.PaymentCreateResponse.FromString,
+                _registered_method=True)
+        self.UpdatePaymentStudentId = channel.unary_unary(
+                '/PaymentService/UpdatePaymentStudentId',
+                request_serializer=service__pb2.PaymentUpdateStudentIdRequest.SerializeToString,
+                response_deserializer=service__pb2.PaymentUpdateResponse.FromString,
+                _registered_method=True)
+        self.DeletePaymentById = channel.unary_unary(
+                '/PaymentService/DeletePaymentById',
+                request_serializer=service__pb2.PaymentDeleteRequest.SerializeToString,
+                response_deserializer=service__pb2.PaymentUpdateResponse.FromString,
                 _registered_method=True)
 
 
@@ -50,13 +75,68 @@ class PaymentServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetPaymentDataById(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdatePaymentData(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreatePaymentData(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdatePaymentStudentId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeletePaymentById(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PaymentServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetPaymentData': grpc.unary_unary_rpc_method_handler(
                     servicer.GetPaymentData,
                     request_deserializer=service__pb2.PaymentRequest.FromString,
+                    response_serializer=service__pb2.PaymentListResponse.SerializeToString,
+            ),
+            'GetPaymentDataById': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetPaymentDataById,
+                    request_deserializer=service__pb2.PaymentRequestById.FromString,
                     response_serializer=service__pb2.PaymentResponse.SerializeToString,
+            ),
+            'UpdatePaymentData': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdatePaymentData,
+                    request_deserializer=service__pb2.PaymentUpdateRequest.FromString,
+                    response_serializer=service__pb2.PaymentUpdateResponse.SerializeToString,
+            ),
+            'CreatePaymentData': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreatePaymentData,
+                    request_deserializer=service__pb2.PaymentCreateRequest.FromString,
+                    response_serializer=service__pb2.PaymentCreateResponse.SerializeToString,
+            ),
+            'UpdatePaymentStudentId': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdatePaymentStudentId,
+                    request_deserializer=service__pb2.PaymentUpdateStudentIdRequest.FromString,
+                    response_serializer=service__pb2.PaymentUpdateResponse.SerializeToString,
+            ),
+            'DeletePaymentById': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeletePaymentById,
+                    request_deserializer=service__pb2.PaymentDeleteRequest.FromString,
+                    response_serializer=service__pb2.PaymentUpdateResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -85,7 +165,142 @@ class PaymentService(object):
             target,
             '/PaymentService/GetPaymentData',
             service__pb2.PaymentRequest.SerializeToString,
+            service__pb2.PaymentListResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetPaymentDataById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/PaymentService/GetPaymentDataById',
+            service__pb2.PaymentRequestById.SerializeToString,
             service__pb2.PaymentResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def UpdatePaymentData(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/PaymentService/UpdatePaymentData',
+            service__pb2.PaymentUpdateRequest.SerializeToString,
+            service__pb2.PaymentUpdateResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CreatePaymentData(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/PaymentService/CreatePaymentData',
+            service__pb2.PaymentCreateRequest.SerializeToString,
+            service__pb2.PaymentCreateResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def UpdatePaymentStudentId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/PaymentService/UpdatePaymentStudentId',
+            service__pb2.PaymentUpdateStudentIdRequest.SerializeToString,
+            service__pb2.PaymentUpdateResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeletePaymentById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/PaymentService/DeletePaymentById',
+            service__pb2.PaymentDeleteRequest.SerializeToString,
+            service__pb2.PaymentUpdateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -109,6 +324,11 @@ class PlanServiceStub(object):
         self.GetPlanData = channel.unary_unary(
                 '/PlanService/GetPlanData',
                 request_serializer=service__pb2.PlanRequest.SerializeToString,
+                response_deserializer=service__pb2.PlanListResponse.FromString,
+                _registered_method=True)
+        self.GetPlanDataById = channel.unary_unary(
+                '/PlanService/GetPlanDataById',
+                request_serializer=service__pb2.PlanRequestById.SerializeToString,
                 response_deserializer=service__pb2.PlanResponse.FromString,
                 _registered_method=True)
 
@@ -122,12 +342,23 @@ class PlanServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetPlanDataById(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PlanServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetPlanData': grpc.unary_unary_rpc_method_handler(
                     servicer.GetPlanData,
                     request_deserializer=service__pb2.PlanRequest.FromString,
+                    response_serializer=service__pb2.PlanListResponse.SerializeToString,
+            ),
+            'GetPlanDataById': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetPlanDataById,
+                    request_deserializer=service__pb2.PlanRequestById.FromString,
                     response_serializer=service__pb2.PlanResponse.SerializeToString,
             ),
     }
@@ -157,6 +388,33 @@ class PlanService(object):
             target,
             '/PlanService/GetPlanData',
             service__pb2.PlanRequest.SerializeToString,
+            service__pb2.PlanListResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetPlanDataById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/PlanService/GetPlanDataById',
+            service__pb2.PlanRequestById.SerializeToString,
             service__pb2.PlanResponse.FromString,
             options,
             channel_credentials,
@@ -181,6 +439,11 @@ class MethodServiceStub(object):
         self.GetMethodData = channel.unary_unary(
                 '/MethodService/GetMethodData',
                 request_serializer=service__pb2.MethodRequest.SerializeToString,
+                response_deserializer=service__pb2.MethodListResponse.FromString,
+                _registered_method=True)
+        self.GetMethodDataById = channel.unary_unary(
+                '/MethodService/GetMethodDataById',
+                request_serializer=service__pb2.MethodRequestById.SerializeToString,
                 response_deserializer=service__pb2.MethodResponse.FromString,
                 _registered_method=True)
 
@@ -194,12 +457,23 @@ class MethodServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMethodDataById(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MethodServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetMethodData': grpc.unary_unary_rpc_method_handler(
                     servicer.GetMethodData,
                     request_deserializer=service__pb2.MethodRequest.FromString,
+                    response_serializer=service__pb2.MethodListResponse.SerializeToString,
+            ),
+            'GetMethodDataById': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMethodDataById,
+                    request_deserializer=service__pb2.MethodRequestById.FromString,
                     response_serializer=service__pb2.MethodResponse.SerializeToString,
             ),
     }
@@ -229,6 +503,33 @@ class MethodService(object):
             target,
             '/MethodService/GetMethodData',
             service__pb2.MethodRequest.SerializeToString,
+            service__pb2.MethodListResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetMethodDataById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/MethodService/GetMethodDataById',
+            service__pb2.MethodRequestById.SerializeToString,
             service__pb2.MethodResponse.FromString,
             options,
             channel_credentials,

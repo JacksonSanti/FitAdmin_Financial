@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rservice.proto\"!\n\x0ePaymentRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"Y\n\x07Payment\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0f\n\x07user_id\x18\x02 \x01(\x05\x12\x0f\n\x07plan_id\x18\x03 \x01(\x05\x12\x11\n\tmethod_id\x18\x04 \x01(\x05\x12\r\n\x05total\x18\x05 \x01(\x02\",\n\x0fPaymentResponse\x12\x19\n\x07payment\x18\x01 \x03(\x0b\x32\x08.Payment\"\x1e\n\x0bPlanRequest\x12\x0f\n\x07plan_id\x18\x01 \x01(\x05\"7\n\x0cPlanResponse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\x05\"\"\n\rMethodRequest\x12\x11\n\tmethod_id\x18\x01 \x01(\x05\"<\n\x0eMethodResponse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x64iscount\x18\x03 \x01(\x02\x32\x45\n\x0ePaymentService\x12\x33\n\x0eGetPaymentData\x12\x0f.PaymentRequest\x1a\x10.PaymentResponse29\n\x0bPlanService\x12*\n\x0bGetPlanData\x12\x0c.PlanRequest\x1a\r.PlanResponse2A\n\rMethodService\x12\x30\n\rGetMethodData\x12\x0e.MethodRequest\x1a\x0f.MethodResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rservice.proto\"\x10\n\x0ePaymentRequest\"(\n\x12PaymentRequestById\x12\x12\n\npayment_id\x18\x01 \x01(\x05\"W\n\x14PaymentUpdateRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0f\n\x07user_id\x18\x02 \x01(\x05\x12\x0f\n\x07plan_id\x18\x03 \x01(\x05\x12\x11\n\tmethod_id\x18\x04 \x01(\x05\"I\n\x1dPaymentUpdateStudentIdRequest\x12\x12\n\nstudent_id\x18\x01 \x01(\x05\x12\x14\n\x0c\x66inancial_id\x18\x02 \x01(\x05\"K\n\x14PaymentCreateRequest\x12\x0f\n\x07user_id\x18\x02 \x01(\x05\x12\x0f\n\x07plan_id\x18\x03 \x01(\x05\x12\x11\n\tmethod_id\x18\x04 \x01(\x05\"*\n\x14PaymentDeleteRequest\x12\x12\n\npayment_id\x18\x01 \x01(\x05\"R\n\x0fPaymentResponse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0f\n\x07user_id\x18\x02 \x01(\x05\x12\x0f\n\x07plan_id\x18\x03 \x01(\x05\x12\x11\n\tmethod_id\x18\x04 \x01(\x05\"8\n\x13PaymentListResponse\x12!\n\x07payment\x18\x01 \x03(\x0b\x32\x10.PaymentResponse\"(\n\x15PaymentUpdateResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"#\n\x15PaymentCreateResponse\x12\n\n\x02id\x18\x01 \x01(\x05\"\r\n\x0bPlanRequest\"\"\n\x0fPlanRequestById\x12\x0f\n\x07plan_id\x18\x01 \x01(\x05\"7\n\x0cPlanResponse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\x01\"/\n\x10PlanListResponse\x12\x1b\n\x04plan\x18\x01 \x03(\x0b\x32\r.PlanResponse\"\x0f\n\rMethodRequest\"&\n\x11MethodRequestById\x12\x11\n\tmethod_id\x18\x01 \x01(\x05\"<\n\x0eMethodResponse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x64iscount\x18\x03 \x01(\x01\"5\n\x12MethodListResponse\x12\x1f\n\x06method\x18\x01 \x03(\x0b\x32\x0f.MethodResponse2\xa4\x03\n\x0ePaymentService\x12\x37\n\x0eGetPaymentData\x12\x0f.PaymentRequest\x1a\x14.PaymentListResponse\x12;\n\x12GetPaymentDataById\x12\x13.PaymentRequestById\x1a\x10.PaymentResponse\x12\x42\n\x11UpdatePaymentData\x12\x15.PaymentUpdateRequest\x1a\x16.PaymentUpdateResponse\x12\x42\n\x11\x43reatePaymentData\x12\x15.PaymentCreateRequest\x1a\x16.PaymentCreateResponse\x12P\n\x16UpdatePaymentStudentId\x12\x1e.PaymentUpdateStudentIdRequest\x1a\x16.PaymentUpdateResponse\x12\x42\n\x11\x44\x65letePaymentById\x12\x15.PaymentDeleteRequest\x1a\x16.PaymentUpdateResponse2q\n\x0bPlanService\x12.\n\x0bGetPlanData\x12\x0c.PlanRequest\x1a\x11.PlanListResponse\x12\x32\n\x0fGetPlanDataById\x12\x10.PlanRequestById\x1a\r.PlanResponse2\x7f\n\rMethodService\x12\x34\n\rGetMethodData\x12\x0e.MethodRequest\x1a\x13.MethodListResponse\x12\x38\n\x11GetMethodDataById\x12\x12.MethodRequestById\x1a\x0f.MethodResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,23 +32,45 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'service_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_PAYMENTREQUEST']._serialized_start=17
-  _globals['_PAYMENTREQUEST']._serialized_end=50
-  _globals['_PAYMENT']._serialized_start=52
-  _globals['_PAYMENT']._serialized_end=141
-  _globals['_PAYMENTRESPONSE']._serialized_start=143
-  _globals['_PAYMENTRESPONSE']._serialized_end=187
-  _globals['_PLANREQUEST']._serialized_start=189
-  _globals['_PLANREQUEST']._serialized_end=219
-  _globals['_PLANRESPONSE']._serialized_start=221
-  _globals['_PLANRESPONSE']._serialized_end=276
-  _globals['_METHODREQUEST']._serialized_start=278
-  _globals['_METHODREQUEST']._serialized_end=312
-  _globals['_METHODRESPONSE']._serialized_start=314
-  _globals['_METHODRESPONSE']._serialized_end=374
-  _globals['_PAYMENTSERVICE']._serialized_start=376
-  _globals['_PAYMENTSERVICE']._serialized_end=445
-  _globals['_PLANSERVICE']._serialized_start=447
-  _globals['_PLANSERVICE']._serialized_end=504
-  _globals['_METHODSERVICE']._serialized_start=506
-  _globals['_METHODSERVICE']._serialized_end=571
+  _globals['_PAYMENTREQUEST']._serialized_end=33
+  _globals['_PAYMENTREQUESTBYID']._serialized_start=35
+  _globals['_PAYMENTREQUESTBYID']._serialized_end=75
+  _globals['_PAYMENTUPDATEREQUEST']._serialized_start=77
+  _globals['_PAYMENTUPDATEREQUEST']._serialized_end=164
+  _globals['_PAYMENTUPDATESTUDENTIDREQUEST']._serialized_start=166
+  _globals['_PAYMENTUPDATESTUDENTIDREQUEST']._serialized_end=239
+  _globals['_PAYMENTCREATEREQUEST']._serialized_start=241
+  _globals['_PAYMENTCREATEREQUEST']._serialized_end=316
+  _globals['_PAYMENTDELETEREQUEST']._serialized_start=318
+  _globals['_PAYMENTDELETEREQUEST']._serialized_end=360
+  _globals['_PAYMENTRESPONSE']._serialized_start=362
+  _globals['_PAYMENTRESPONSE']._serialized_end=444
+  _globals['_PAYMENTLISTRESPONSE']._serialized_start=446
+  _globals['_PAYMENTLISTRESPONSE']._serialized_end=502
+  _globals['_PAYMENTUPDATERESPONSE']._serialized_start=504
+  _globals['_PAYMENTUPDATERESPONSE']._serialized_end=544
+  _globals['_PAYMENTCREATERESPONSE']._serialized_start=546
+  _globals['_PAYMENTCREATERESPONSE']._serialized_end=581
+  _globals['_PLANREQUEST']._serialized_start=583
+  _globals['_PLANREQUEST']._serialized_end=596
+  _globals['_PLANREQUESTBYID']._serialized_start=598
+  _globals['_PLANREQUESTBYID']._serialized_end=632
+  _globals['_PLANRESPONSE']._serialized_start=634
+  _globals['_PLANRESPONSE']._serialized_end=689
+  _globals['_PLANLISTRESPONSE']._serialized_start=691
+  _globals['_PLANLISTRESPONSE']._serialized_end=738
+  _globals['_METHODREQUEST']._serialized_start=740
+  _globals['_METHODREQUEST']._serialized_end=755
+  _globals['_METHODREQUESTBYID']._serialized_start=757
+  _globals['_METHODREQUESTBYID']._serialized_end=795
+  _globals['_METHODRESPONSE']._serialized_start=797
+  _globals['_METHODRESPONSE']._serialized_end=857
+  _globals['_METHODLISTRESPONSE']._serialized_start=859
+  _globals['_METHODLISTRESPONSE']._serialized_end=912
+  _globals['_PAYMENTSERVICE']._serialized_start=915
+  _globals['_PAYMENTSERVICE']._serialized_end=1335
+  _globals['_PLANSERVICE']._serialized_start=1337
+  _globals['_PLANSERVICE']._serialized_end=1450
+  _globals['_METHODSERVICE']._serialized_start=1452
+  _globals['_METHODSERVICE']._serialized_end=1579
 # @@protoc_insertion_point(module_scope)
